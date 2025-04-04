@@ -21,25 +21,11 @@ class BruteForceKnapsack {
 private:
     double maxWeight;
     Table itemTable;
-    
-    // Helper function to check if an item type already exists in the current combination
-    bool containsItemType(const std::vector<size_t>& combination, 
-                        const std::vector<std::unique_ptr<Item>>& items, 
-                        size_t newItemIndex);
-    
-    // Helper function to evaluate a combination's total weight and value
-    std::pair<double, double> evaluateCombination(const std::vector<size_t>& combination, 
-                                                const std::vector<std::unique_ptr<Item>>& items);
-    
-    // Helper function to create a Bag from a combination
-    Bag createBagFromCombination(const std::vector<size_t>& combination, 
-                                const std::vector<std::unique_ptr<Item>>& items,
-                                double maxWeight);
+
     
 public:
-    BruteForceKnapsack(double maxWeight = 100.0);
-    
-    // Main function to run the brute force algorithm
+    BruteForceKnapsack(double maxWeight);
+
     void run();
 
 };

@@ -18,5 +18,7 @@ add_executable(${ProjectId} main.cpp
         items/Hygiene.h
         BruteForceKnapsack.cpp
         BruteForceKnapsack.h
+        PureBruteForce.cpp
+        PureBruteForce.h
 
 )

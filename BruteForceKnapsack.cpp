@@ -3,64 +3,6 @@
 BruteForceKnapsack::BruteForceKnapsack(double maxWeight) : maxWeight(maxWeight) {
 }
 
-bool BruteForceKnapsack::containsItemType(const std::vector<size_t>& combination, 
-                                         const std::vector<std::unique_ptr<Item>>& items, 
-                                         size_t newItemIndex)
-{
-    const std::type_info& newItemType = typeid(*items[newItemIndex]);
-    
-    for (size_t idx : combination) {
-        if (typeid(*items[idx]) == newItemType) {
-            return true;
-        }
-    }
-    return false;
-}
-
-std::pair<double, double> BruteForceKnapsack::evaluateCombination(const std::vector<size_t>& combination, 
-                                                                 const std::vector<std::unique_ptr<Item>>& items)
-{
-    double totalWeight = 0.0;
-    double totalValue = 0.0;
-    
-    for (size_t idx : combination) {
-        totalWeight += items[idx]->getWeight();
-        totalValue += items[idx]->getPrice();
-    }
-    
-    return {totalWeight, totalValue};
-}
-
-Bag BruteForceKnapsack::createBagFromCombination(const std::vector<size_t>& combination, 
-                                               const std::vector<std::unique_ptr<Item>>& items,
-                                               double maxWeight) {
-    Bag resultBag(maxWeight);
-    
-    for (size_t idx : combination) {
-        const Item& item = *items[idx];
-        std::unique_ptr<Item> itemCopy;
-        
-        // Create appropriate item type based on the original item
-        if (dynamic_cast<const Food*>(&item)) {
-            itemCopy = std::make_unique<Food>(item.getName(), item.getPrice(), item.getWeight());
-        } else if (dynamic_cast<const Drink*>(&item)) {
-            itemCopy = std::make_unique<Drink>(item.getName(), item.getPrice(), item.getWeight());
-        } else if (dynamic_cast<const Gadget*>(&item)) {
-            itemCopy = std::make_unique<Gadget>(item.getName(), item.getPrice(), item.getWeight());
-        } else if (dynamic_cast<const Clothes*>(&item)) {
-            itemCopy = std::make_unique<Clothes>(item.getName(), item.getPrice(), item.getWeight());
-        } else if (dynamic_cast<const Hygiene*>(&item)) {
-            itemCopy = std::make_unique<Hygiene>(item.getName(), item.getPrice(), item.getWeight());
-        } else {
-            itemCopy = std::make_unique<Item>(item.getName(), item.getPrice(), item.getWeight());
-        }
-        
-        resultBag.addItem(std::move(itemCopy));
-    }
-    
-    return resultBag;
-}
-
 void BruteForceKnapsack::run() {
     // Generate items if we don't have custom ones
     if (itemTable.getItems().empty()) {
@@ -163,11 +105,7 @@ void BruteForceKnapsack::run() {
         
         std::cout << "\nTotal value: " << bestValue << " CZK\n";
         std::cout << "Total weight: " << bestTotalWeight << " kg\n";
-        
-        // Create and display the best bag
-        Bag bestBag = createBagFromCombination(bestCombination, items, maxWeight);
-        std::cout << "\nBest bag contents:\n";
-        bestBag.displayContents();
+
     } else {
         std::cout << "No valid combination found.\n";
     }
