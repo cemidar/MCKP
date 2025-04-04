@@ -1,7 +1,7 @@
 
 #ifndef GADGET_H
 #define GADGET_H
-#include "Item.h"
+#include "../Item.h"
 
 class Gadget : public Item
 {

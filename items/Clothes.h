@@ -1,7 +1,7 @@
 
 #ifndef CLOTHES_H
 #define CLOTHES_H
-#include "Item.h"
+#include "../Item.h"
 
 class Clothes : public Item
 {

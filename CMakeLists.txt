@@ -9,5 +9,9 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(${ProjectId} main.cpp
         Item.h
         Bag.h
-        Food.h
+        items/Food.h
+        items/Drink.h
+        items/Gadget.h
+        items/Clothes.h
+        items/Hygiene.h
 )

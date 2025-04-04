@@ -1,7 +1,7 @@
 
 #ifndef HYGINE_H
 #define HYGINE_H
-#include "Item.h"
+#include "../Item.h"
 
 class Hygiene : public Item
 {
