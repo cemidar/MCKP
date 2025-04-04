@@ -16,5 +16,7 @@ add_executable(${ProjectId} main.cpp
         items/Gadget.h
         items/Clothes.h
         items/Hygiene.h
+        BruteForceKnapsack.cpp
+        BruteForceKnapsack.h
 
 )

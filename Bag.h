@@ -1,6 +1,7 @@
 
 #ifndef BAG_H
 #define BAG_H
+#include <cassert>
 #include <memory>
 #include <vector>
 #include <sstream>
@@ -43,7 +44,7 @@ public:
 
         if (containsItemOfSameType(itemRef)) {
             std::cout << "Item of the same type already exists in the bag." << std::endl;
-            return false;
+            assert(!"Item of the same type already exists in the bag.");
         }
 
         // Add item
