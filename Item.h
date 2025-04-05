@@ -10,11 +10,16 @@ private:
     std::string name;
     double price;
     double weight;
+    int classId;
 
 public:
-    Item(const std::string& name, double price, double weight)
-        : name(name), price(price), weight(weight) {}
-
+    Item(const std::string& name, double price, double weight, int class_id)
+        : name(name),
+          price(price),
+          weight(weight),
+          classId(class_id)
+    {
+    }
 
     virtual ~Item() = default;
 
@@ -22,6 +27,7 @@ public:
     std::string getName() const { return name; }
     double getWeight() const { return weight; }
     double getPrice() const { return price; }
+    int getClassId() const { return classId; }
 
 };
 

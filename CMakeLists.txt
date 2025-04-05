@@ -8,14 +8,8 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(${ProjectId} main.cpp
         Item.h
-        Bag.h
         Table.h
         Table.cpp
-        items/Food.h
-        items/Drink.h
-        items/Gadget.h
-        items/Clothes.h
-        items/Hygiene.h
         BruteForceKnapsack.cpp
         BruteForceKnapsack.h
         PureBruteForce.cpp

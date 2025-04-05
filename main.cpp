@@ -4,11 +4,16 @@
 
 int main() {
 
-    BruteForceKnapsack bruteForce(5*20);
+    int amountOfClasses = 9;
 
-    bruteForce.run();
+    Table itemTable;
+    itemTable.generateItems(amountOfClasses*20);
 
-    runPureBruteForce();
+    BruteForceKnapsack bruteForce(amountOfClasses*20);
+    bruteForce.run(itemTable);
+
+    PureBruteForce pureBruteForce(amountOfClasses*20);
+    pureBruteForce.run(itemTable);
 
     return 0;
 }

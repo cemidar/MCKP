@@ -9,22 +9,19 @@
 #include <set>
 #include <functional>
 
-#include "Bag.h"
+
 #include "Table.h"
-#include "items/Food.h"
-#include "items/Drink.h"
-#include "items/Gadget.h"
-#include "items/Clothes.h"
-#include "items/Hygiene.h"
+
 
 class BruteForceKnapsack {
 private:
     double maxWeight;
     Table itemTable;
 
-    
+
 public:
     BruteForceKnapsack(double maxWeight);
+    void run(const Table& itemsProvided);
 
     void run();
 
